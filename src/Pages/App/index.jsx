@@ -5,7 +5,10 @@ import {MyOrder} from '../MyOrder'
 import {MyOrders} from '../MyOrders'
 import {NotFound} from '../NotFound'
 import {SingIn} from '../SingIn'
+import { Navbar } from '../../Components/NavBar'
+import { ShoppingContextProvider } from '../../Context'
 import './App.css'
+import { Layout } from '../../Components/Layout'
 
 const AppRoutes = () => {
   let routes = [
@@ -23,11 +26,14 @@ const AppRoutes = () => {
 
 function App() {
   return (
-    <>
+    <ShoppingContextProvider>
       <BrowserRouter>
-        <AppRoutes />
+        <Navbar />
+        <Layout>
+          <AppRoutes />
+        </Layout>
       </BrowserRouter>
-    </>
+    </ShoppingContextProvider>
   )
 }
 
