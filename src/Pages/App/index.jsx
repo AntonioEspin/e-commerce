@@ -1,4 +1,5 @@
 import { useRoutes, BrowserRouter } from 'react-router-dom'
+import { CheckoutSideMenu } from '../../Components/CheckoutSideMenu'
 import {Home} from '../Home'
 import {MyAccount} from '../MyAccount'
 import {MyOrder} from '../MyOrder'
@@ -16,6 +17,8 @@ const AppRoutes = () => {
     {path:'/my-account', element: <MyAccount />},
     {path:'/my-order', element: <MyOrder />},
     {path:'/my-orders', element: <MyOrders />},
+    {path:'/my-orders/last', element: <MyOrder />},
+    {path:'/my-orders/:id', element: <MyOrder />},
     {path:'/sign-in', element: <SingIn />},
     {path:'/*', element: <NotFound />},
   ]
@@ -31,6 +34,7 @@ function App() {
         <Navbar />
         <Layout>
           <AppRoutes />
+          <CheckoutSideMenu showMarkIcon = {true} />
         </Layout>
       </BrowserRouter>
     </ShoppingContextProvider>
